@@ -55,10 +55,12 @@ contract Token is Owned {
     string public symbol;
     uint8 public decimals;
 
-    function Token() public {
+    function Token(uint256 _totalSupply) public {
         name = "Odeon Mining Token";
         symbol = "OMT";
         decimals = 18;
+        totalSupply = _totalSupply;
+        balanceOf[owner] = totalSupply;
     }
 
     // Send coins
