@@ -1,10 +1,367 @@
 {
-  "contractName": "SafeMath",
-  "abi": [],
-  "bytecode": "0x604c602c600b82828239805160001a60731460008114601c57601e565bfe5b5030600052607381538281f30073000000000000000000000000000000000000000030146080604052600080fd00a165627a7a723058209d80cf6c42b75ef528813e98748eac600ae83cd3711b6b5f27db1d4dce45f2ef0029",
-  "deployedBytecode": "0x73000000000000000000000000000000000000000030146080604052600080fd00a165627a7a723058209d80cf6c42b75ef528813e98748eac600ae83cd3711b6b5f27db1d4dce45f2ef0029",
-  "sourceMap": "101:536:1:-;;132:2:-1;166:7;155:9;146:7;137:37;252:7;246:14;243:1;238:23;232:4;229:33;270:1;265:20;;;;222:63;;265:20;274:9;222:63;;298:9;295:1;288:20;328:4;319:7;311:22;352:7;343;336:24",
-  "deployedSourceMap": "101:536:1:-;;;;;;;;",
+  "contractName": "Loyalty",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "active",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "name",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_spender",
+          "type": "address"
+        },
+        {
+          "name": "_value",
+          "type": "uint256"
+        }
+      ],
+      "name": "approve",
+      "outputs": [
+        {
+          "name": "success",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "totalSupply",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "decimals",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_spender",
+          "type": "address"
+        },
+        {
+          "name": "_subtractedValue",
+          "type": "uint256"
+        }
+      ],
+      "name": "decreaseApproval",
+      "outputs": [
+        {
+          "name": "success",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "balanceOf",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "symbol",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "rewardPerDayWei",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_spender",
+          "type": "address"
+        },
+        {
+          "name": "_addedValue",
+          "type": "uint256"
+        }
+      ],
+      "name": "increaseApproval",
+      "outputs": [
+        {
+          "name": "success",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "address"
+        },
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "name": "allowance",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "payable": true,
+      "stateMutability": "payable",
+      "type": "fallback"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "value",
+          "type": "uint256"
+        }
+      ],
+      "name": "Transfer",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "_owner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "_spender",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "_value",
+          "type": "uint256"
+        }
+      ],
+      "name": "Approval",
+      "type": "event"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_tokenHolder",
+          "type": "address"
+        }
+      ],
+      "name": "getRewardValue",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "emergencyLock",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_tokenHolder",
+          "type": "address"
+        }
+      ],
+      "name": "collectReward",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_to",
+          "type": "address"
+        },
+        {
+          "name": "_value",
+          "type": "uint256"
+        }
+      ],
+      "name": "transfer",
+      "outputs": [
+        {
+          "name": "success",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_from",
+          "type": "address"
+        },
+        {
+          "name": "_to",
+          "type": "address"
+        },
+        {
+          "name": "_value",
+          "type": "uint256"
+        }
+      ],
+      "name": "transferFrom",
+      "outputs": [
+        {
+          "name": "success",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "sourceMap": "",
+  "deployedSourceMap": "",
   "source": "pragma solidity 0.4.23;\n\n// Safe Math library that automatically checks for overflows and underflows\nlibrary SafeMath {\n    // Safe multiplication\n    function mul(uint256 a, uint256 b) internal pure returns (uint256) {\n        uint256 c = a * b;\n        require(a == 0 || c / a == b);\n        return c;\n    }\n    // Safe subtraction\n    function sub(uint256 a, uint256 b) internal pure returns (uint256) {\n        require(b <= a);\n        return a - b;\n    }\n    // Safe addition\n    function add(uint256 a, uint256 b) internal pure returns (uint256) {\n        uint256 c = a + b;\n        require(c>=a && c>=b);\n        return c;\n    }\n}\n\n/// @title Owned contract\n/// @author InnoChain\ncontract Owned {\n    address public owner;\n\n    modifier onlyOwner {\n        require(msg.sender == owner, \"msg.sender isn't owner\");\n        _;\n    }\n    constructor() public {\n        owner = msg.sender;\n    }\n}\n\n/// @title ERC20 Token contract\n/// @author InnoChain\n/// @notice Basic ERC20 functionality\ncontract Token is Owned {\n    using SafeMath for uint256;\n    \n    event Transfer(address indexed from, address indexed to, uint256 value);\n    event Approval(address indexed _owner, address indexed _spender, uint256 _value);\n\n    // This creates a mapping with all balances\n    mapping (address => uint256) public balanceOf;\n    // Another mapping with spending allowances\n    mapping (address => mapping (address => uint256)) public allowance;\n    // The total supply of the token\n    uint256 public totalSupply;\n    // variables for wallet integration\n    string public name;\n    string public symbol;\n    uint8 public decimals;\n\n    constructor(uint256 _totalSupply, uint256 loyaltyReward) public {\n        name = \"Odeon Mining Token\";\n        symbol = \"OMT\";\n        decimals = 18;\n        totalSupply = _totalSupply;\n        balanceOf[owner] = totalSupply.sub(loyaltyReward);\n        balanceOf[address(this)] = loyaltyReward;\n        // in case of the unlikely event that the tokens get locked inside the contract, the owner can withdraw the loyalty bonus tokens.\n        allowance[address(this)][owner] = loyaltyReward;\n    }\n\n    function transfer(address _to, uint256 _value) public returns (bool success) {\n        require(_to != 0x0);\n        require(_to != address(this));\n        balanceOf[msg.sender] = balanceOf[msg.sender].sub(_value);\n        balanceOf[_to] = balanceOf[_to].add(_value);\n        emit Transfer(msg.sender, _to, _value);\n        return true;\n    }\n\n    function transferFrom(address _from, address _to, uint256 _value) public returns (bool success) {\n        require(_to != 0x0);\n        require(_to != address(this));\n        balanceOf[_to] = balanceOf[_to].add(_value);\n        balanceOf[_from] = balanceOf[_from].sub(_value);\n        allowance[_from][msg.sender] = allowance[_from][msg.sender].sub(_value);\n        emit Transfer(_from, _to, _value);\n        return true;\n    }\n\n    function approve(address _spender, uint256 _value) public returns (bool success) {\n        allowance[msg.sender][_spender] = _value;\n        emit Approval(msg.sender, _spender, _value);\n        return true;\n    }\n    \n    function increaseApproval(address _spender, uint _addedValue) public returns (bool success) {\n        allowance[msg.sender][_spender] = allowance[msg.sender][_spender].add(_addedValue);\n        emit Approval(msg.sender, _spender, allowance[msg.sender][_spender]);\n        return true;\n    }\n    \n    function decreaseApproval(address _spender, uint _subtractedValue) public returns (bool success) {\n        uint256 oldValue = allowance[msg.sender][_spender];\n        if (_subtractedValue > oldValue) {\n            allowance[msg.sender][_spender] = 0;\n        } else {\n            allowance[msg.sender][_spender] = oldValue.sub(_subtractedValue);\n        }\n        emit Approval(msg.sender, _spender, allowance[msg.sender][_spender]);\n        return true;\n    }\n}\n\ncontract Loyalty is Token {\n\n    mapping(address => uint256) private timer;\n    uint256 public rewardPerDayWei;\n    bool public active;\n    uint256 private timePeriod;\n\n    constructor() public {\n        active = true;\n        // 6% per year\n        rewardPerDayWei = 164383561600000;\n        timePeriod = 1 days;\n    }\n\n    function update(address _tokenHolder) private {\n        // the owner and the contract itself are not allowed to participate in the loyalty reward\n        if (_tokenHolder != owner && _tokenHolder != address(this)) {\n            uint256 tempTimer = timer[_tokenHolder];\n            // initialize counter\n            if (tempTimer == 0) {\n                timer[_tokenHolder] = now;\n            } else {\n                // calculate number of days since last Loyalty reward withdrawal\n                uint256 dayCount = now.sub(tempTimer)/timePeriod;\n                // subtract number of days from timer\n                timer[_tokenHolder] = tempTimer.add(dayCount.mul(timePeriod));\n                // If number of days greater than 0, pay out loyalty reward\n                if (dayCount > 0) {\n                    // temporary variables for balance of tokenholder and contract and reward to save gas\n                    uint256 balance = balanceOf[_tokenHolder];\n                    // calculate token reward: daily token reward for one token * number of days * balance / 10^18\n                    uint256 reward = rewardPerDayWei.mul(dayCount).mul(balance)/(1 ether);\n                    uint256 contractBalance = balanceOf[address(this)];\n                    // if reward is smaller than contract Balance, pay out the rest of the tokens and set the active bool to false\n                    // else pay out reward and subtract it from the contract balance\n                    if (reward > contractBalance) {\n                        active = false;\n                        balanceOf[address(this)] = 0;\n                        balanceOf[_tokenHolder] = balance.add(contractBalance);\n                        emit Transfer(address(this), _tokenHolder, contractBalance);\n                    } else {\n                        balanceOf[address(this)] = contractBalance.sub(reward);\n                        balanceOf[_tokenHolder] = balance.add(reward);\n                        emit Transfer(address(this), _tokenHolder, reward);\n                    }\n                }\n            }\n        }\n    }\n\n    function getRewardValue(address _tokenHolder) public view returns (uint256) {\n        if (!active) {\n            return 0;\n        }\n        // the owner is not allowed to participate in the loyalty reward\n        if (_tokenHolder == owner) {\n            return 0;\n        } else {\n            uint256 tempTimer = timer[_tokenHolder];\n            // initialize counter\n            if (tempTimer == 0) {\n                return 0;\n            } else {\n                // calculate number of days since last Loyalty reward withdrawal\n                uint256 dayCount = now.sub(tempTimer)/timePeriod;\n                // If number of days greater than 0, pay out loyalty reward\n                if (dayCount > 0) {\n                    // temporary variables for balance of tokenholder and contract and reward to save gas\n                    uint256 balance = balanceOf[_tokenHolder];\n                    // calculate token reward: daily token reward for one token * number of days * balance / 10^18\n                    return rewardPerDayWei.mul(dayCount).mul(balance)/(1 ether);\n                } else {\n                    return 0;\n                }\n            }\n        }\n    }\n\n    /**\n    Emergency function: if the contract is locked due to a bug in the smart contract code, \n    the owner can deactivate the loyalty bonus so the token can function as usual\n     */\n    function emergencyLock() external onlyOwner {\n        active = false;        \n    }\n\n    // functions to collect the token reward\n    function collectReward(address _tokenHolder) public {\n        require(active);\n        update(_tokenHolder);\n    }\n    // use fallback function so tokenholders can withdraw the loyalty reward without having to call a function\n    function () public payable {\n        require(msg.value == 0);\n        require(active);\n        update(msg.sender);\n    }\n\n    // overwrite transfer and transferFrom functions\n    function transfer(address _to, uint256 _value) public returns (bool success) {\n        require(_to != 0x0);\n        require(_to != address(this));\n        // update and payout loyalty rewards during transfer\n        if (active) {\n            update(msg.sender);\n            update(_to);\n        }\n        balanceOf[msg.sender] = balanceOf[msg.sender].sub(_value);\n        balanceOf[_to] = balanceOf[_to].add(_value);\n        emit Transfer(msg.sender, _to, _value);\n        return true;\n    }\n\n    function transferFrom(address _from, address _to, uint256 _value) public returns (bool success) {\n        require(_to != 0x0);\n        require(_to != address(this));\n        // update and payout loyalty rewards during transfer\n        if (active) {\n            update(_from);\n            update(_to);\n        }\n        balanceOf[_to] = balanceOf[_to].add(_value);\n        balanceOf[_from] = balanceOf[_from].sub(_value);\n        allowance[_from][msg.sender] = allowance[_from][msg.sender].sub(_value);\n        emit Transfer(_from, _to, _value);\n        return true;\n    }\n\n}\n\ncontract Odeon is Loyalty {\n    constructor(uint256 _totalSupply, uint256 loyaltyReward) public Token(_totalSupply, loyaltyReward) {}\n}",
   "sourcePath": "/Users/gretzke/Documents/Projekte/InnoChain/ODEON Mining/ODEON MINING/contracts/Token.sol",
   "ast": {
@@ -24399,5 +24756,5 @@
   },
   "networks": {},
   "schemaVersion": "2.0.0",
-  "updatedAt": "2018-05-27T11:56:51.268Z"
+  "updatedAt": "2018-05-27T11:56:51.244Z"
 }
